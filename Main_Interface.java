@@ -21,6 +21,22 @@ public class Main_Interface extends Activity {
             }
 
         });
+        Button weatherButton = (Button) findViewById(R.id.weather);
+        weatherButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                startActivity(new Intent(Main_Interface.this, WeatherDisplay.class));
+            }
+        });
+        Button mapButton = (Button) findViewById(R.id.map);
+        mapButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view)
+            {
+                startActivity(new Intent(Main_Interface.this, MapDisplay.class));
+            }
+        });
     }
 
 }

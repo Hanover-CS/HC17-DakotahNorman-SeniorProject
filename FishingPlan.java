@@ -18,15 +18,15 @@ import android.widget.Spinner;
 public class FishingPlan extends Activity
 {
     Spinner water_temp_spinner;
-    String water_temp_input;
+    public static String water_temp_input;
     Spinner structure_spinner;
-    String structure_input;
+    public static String structure_input;
     Spinner cloud_spinner;
-    String cloud_input;
+    public static String cloud_input;
     Spinner wind_spinner;
-    String wind_input;
+    public static String wind_input;
     Spinner water_clarity_spinner;
-    String water_clarity_input;
+    public static String water_clarity_input;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +49,11 @@ public class FishingPlan extends Activity
                 wind_input = wind_spinner.getSelectedItem().toString();
                 water_clarity_spinner = (Spinner) findViewById(R.id.water_clarity);
                 water_clarity_input = water_clarity_spinner.getSelectedItem().toString();
+//                Log.d("input****",water_temp_input);
+//                Log.d("input****",structure_input);
+//                Log.d("input****",cloud_input);
+//                Log.d("input****",wind_input);
+//                Log.d("input****",water_clarity_input);
                 startActivity(new Intent(FishingPlan.this, BaitDisplay.class));
             }
 
@@ -96,9 +101,9 @@ public class FishingPlan extends Activity
     }
 
     public String getWaterTempInput()
-    {
-        return this.water_temp_input;
-    }
+{
+    return this.water_temp_input;
+}
 
     public String getCloudInput()
     {
