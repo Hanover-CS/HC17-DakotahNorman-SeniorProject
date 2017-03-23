@@ -31,6 +31,7 @@ public class BaitDisplay extends Activity {
         setContentView(R.layout.activity_bait_display);
 
 
+
         input_temp = FishingPlan.water_temp_input;
         input_clarity = FishingPlan.water_clarity_input;
         input_structures = FishingPlan.structure_input;

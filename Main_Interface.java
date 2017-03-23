@@ -34,7 +34,7 @@ public class Main_Interface extends Activity {
             @Override
             public void onClick(View view)
             {
-                startActivity(new Intent(Main_Interface.this, MapDisplay.class));
+                startActivity(new Intent(Main_Interface.this, MapsActivity.class));
             }
         });
     }

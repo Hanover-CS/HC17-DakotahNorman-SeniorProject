@@ -4,9 +4,12 @@ package com.example.dakotahnorman.fishingtextbook;
  * Created by Dakotah Norman on 11/6/2016.
  */
 
+import android.support.v4.app.TaskStackBuilder;
 import android.os.Bundle;
 import android.app.Activity;
+import android.support.v4.app.NavUtils;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.content.Intent;
 import android.widget.ArrayAdapter;
@@ -119,4 +122,5 @@ public class FishingPlan extends Activity
     {
         return this.wind_input;
     }
+
 }
