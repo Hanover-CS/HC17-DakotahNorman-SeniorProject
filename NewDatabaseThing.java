@@ -10,6 +10,7 @@ import android.util.Log;
 
 /**
  * Created by Dakotah Norman on 1/20/2017.
+ * Implements the database that is used in the BaitDisplay activity.
  */
 public class NewDatabaseThing extends SQLiteOpenHelper
 {
@@ -34,6 +35,7 @@ public class NewDatabaseThing extends SQLiteOpenHelper
     private void updateMyDatabase(SQLiteDatabase db, int oldVersion, int newVersion) {
         if (oldVersion < 1)
         {
+            //Creates the Lures table
             db.execSQL("CREATE TABLE LURES ("
                     + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
                     + "NAME TEXT, "
@@ -53,7 +55,7 @@ public class NewDatabaseThing extends SQLiteOpenHelper
             insertLures(db, "Lipless Crankbait", "This lure is used by casting out and retrieving the bait. You can either stop-and-go reel " +
                     "or you can use a steady retrieve.", R.drawable.lipless_crank);
             insertLures(db, "Spinnerbait", "This lure is used by casting out and retrieving the bait. Use a steady retrieve.", R.drawable.spinnerbait);
-
+            //Creates the Lureconditions table
             db.execSQL("CREATE TABLE LURECONDITIONS ("
                     + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
                     + "NAME TEXT, "
@@ -85,7 +87,7 @@ public class NewDatabaseThing extends SQLiteOpenHelper
             insertLureConditions(db, "Lipless Crankbait", "Clear");
         }
     }
-
+    //Method to insert into the Lures table.
     private static void insertLures(SQLiteDatabase db, String name, String description, int resourceId) {
         ContentValues lureValues = new ContentValues();
         lureValues.put("NAME", name);
@@ -93,7 +95,7 @@ public class NewDatabaseThing extends SQLiteOpenHelper
         lureValues.put("IMAGE_RESOURCE_ID", resourceId);
         db.insert("LURES", null, lureValues);
     }
-
+    //Method to insert into the Lure Conditions.
     private static void insertLureConditions(SQLiteDatabase db, String lure_name, String conditions)
     {
         ContentValues inputLureConditions = new ContentValues();
