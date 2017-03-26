@@ -12,8 +12,9 @@ public class Main_Interface extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main__interface);
-        Button btn = (Button) findViewById(R.id.fishing_plan);
-        btn.setOnClickListener(new View.OnClickListener() {
+        //Get the button and listen for the click
+        Button fishingPlanButton = (Button) findViewById(R.id.fishing_plan);
+        fishingPlanButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
@@ -21,6 +22,7 @@ public class Main_Interface extends Activity {
             }
 
         });
+        //Get the button and listen for the click
         Button weatherButton = (Button) findViewById(R.id.weather);
         weatherButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,6 +31,7 @@ public class Main_Interface extends Activity {
                 startActivity(new Intent(Main_Interface.this, WeatherDisplay.class));
             }
         });
+        //Get the button and listen for the click
         Button mapButton = (Button) findViewById(R.id.map);
         mapButton.setOnClickListener(new View.OnClickListener(){
             @Override
