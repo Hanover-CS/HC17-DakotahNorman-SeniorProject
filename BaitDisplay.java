@@ -1,5 +1,8 @@
 package com.example.dakotahnorman.fishingtextbook;
-
+/**
+ * Displays the baits based on the inputs from the Fishing Plan activity.
+ *
+ */
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
@@ -31,7 +34,7 @@ public class BaitDisplay extends Activity {
         setContentView(R.layout.activity_bait_display);
 
 
-
+        //Get the inputs from the Fishing Plan activity
         input_temp = FishingPlan.water_temp_input;
         input_clarity = FishingPlan.water_clarity_input;
         input_structures = FishingPlan.structure_input;
@@ -41,6 +44,7 @@ public class BaitDisplay extends Activity {
         Log.i("input****", input_temp);
         //Log.d("input****",input_temp);
         try{
+            //Get an instance of the database : NewDatabaseThing. Then make it a writable database
             SQLiteOpenHelper FishingPlanDatabaseHelper = new NewDatabaseThing(this);
             Log.i("name**","here");
             SQLiteDatabase db = FishingPlanDatabaseHelper.getWritableDatabase();
@@ -93,6 +97,8 @@ public class BaitDisplay extends Activity {
             toast.show();
         }
     }
+
+    //Method to call when we need to get the information from the cursor that it gets from the database.
     public void accessCursor(Cursor cursor)
     {
         if (cursor.moveToFirst()) {
