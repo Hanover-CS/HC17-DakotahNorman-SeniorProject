@@ -1,5 +1,9 @@
 package com.example.dakotahnorman.fishingtextbook;
-
+/**
+ * Implements the Google Maps activity.
+ * Uses the Google Maps API as well as the Google Play services SDK
+ *
+ */
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -50,20 +54,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .build();
     }
 
-    protected void onStart() {
-        googleApiClient.connect();
-        super.onStart();
-    }
-
-    protected void onStop() {
-        googleApiClient.disconnect();
-        super.onStop();
-    }
-
-
-
-
-
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -76,6 +66,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        //Checks the permissions of the application
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
             mMap.setMyLocationEnabled(true);
@@ -83,7 +74,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             // Show rationale and request permission.
         }
 
-        // Add a marker in Sydney and move the camera
+        // Add a marker in India and move the camera
+        // Uses Google Repository and Google Play Services SDK.
         LatLng india = new LatLng(-34, 151);
         mMap.addMarker(new MarkerOptions().position(india).title("Marker in India"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(india));
@@ -92,16 +84,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     //Getting current location
     private void getCurrentLocation() {
         mMap.clear();
-        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
         Location location = LocationServices.FusedLocationApi.getLastLocation(googleApiClient);
         if (location != null) {
             //Getting longitude and latitude
@@ -113,23 +95,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-    private void moveMap() {
-        /**
-         * Creating the latlng object to store lat, long coordinates
-         * adding marker to map
-         * move the camera with animation
-         */
-        LatLng latLng = new LatLng(latitude, longitude);
-        mMap.addMarker(new MarkerOptions()
-                .position(latLng)
-                .draggable(true)
-                .title("Marker in India"));
+    protected void onStart() {
+        googleApiClient.connect();
+        super.onStart();
+    }
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
-        mMap.getUiSettings().setZoomControlsEnabled(true);
-
-
+    protected void onStop() {
+        googleApiClient.disconnect();
+        super.onStop();
     }
 
     @Override
