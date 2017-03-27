@@ -1,6 +1,8 @@
 package com.example.dakotahnorman.fishingtextbook;
 
-
+/**
+ * Implements the menu part of the weather activity.
+ */
 import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.content.DialogInterface;
@@ -46,7 +48,7 @@ public class WeatherDisplay extends AppCompatActivity {
         });
         builder.show();
     }
-
+    //Changes the city
     public void changeCity(String city){
         WeatherFragment wf = (WeatherFragment)getSupportFragmentManager()
                 .findFragmentById(R.id.container);
