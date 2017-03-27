@@ -2,7 +2,7 @@
 
 ###Dakotah Norman Senior Project Repository
 	
-- Installation instructions:
+1. Installation instructions:
     - Clone the repository off GitHub.
 	- Download Android Studios.
 	- Copy files over to AndroidStudiosProjects folder.
@@ -12,7 +12,7 @@
 	- After adding the dependencies, build the application.
 	- After building the application, run the application on an Android device that is connected to the computer.
 	- Congratulations, you now have the application on your Android device.
-- Basic User's Guide
+2. Basic User's Guide
 	- There are four main buttons for this application
 		- Weather
 		- Map
