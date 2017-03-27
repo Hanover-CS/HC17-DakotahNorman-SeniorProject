@@ -1,7 +1,8 @@
 package com.example.dakotahnorman.fishingtextbook;
 
 /**
- * Created by Dakotah Norman on 3/13/2017.
+ *
+ * Implements the call to the OpenWeatherMap API and parses the information that is returned.
  */
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -20,6 +21,7 @@ public class RemoteFetch {
 
     public static JSONObject getJSON(Context context, String city){
         try {
+            //Calls the OpenWeatherMap API.
             URL url = new URL(String.format(OPEN_WEATHER_MAP_API, city));
             HttpURLConnection connection =
                     (HttpURLConnection)url.openConnection();
@@ -29,13 +31,13 @@ public class RemoteFetch {
 
             BufferedReader reader = new BufferedReader(
                     new InputStreamReader(connection.getInputStream()));
-
+            //Creates the JSON
             StringBuffer json = new StringBuffer(1024);
             String tmp="";
             while((tmp=reader.readLine())!=null)
                 json.append(tmp).append("\n");
             reader.close();
-
+            //Puts the JSON into a readable object.
             JSONObject data = new JSONObject(json.toString());
 
             // This value will be 404 if the request was not
